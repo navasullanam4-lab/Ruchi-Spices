@@ -1,0 +1,105 @@
+/* ============================================================
+   home.css — styles only for index.html
+   ============================================================ */
+
+/* ── HERO ─────────────────────────────────────────────────── */
+.hero {
+  min-height: 100vh; position:relative; display:flex; align-items:center;
+  overflow:hidden; padding-top:68px;
+}
+.hero-bg {
+  position:absolute; inset:0;
+  background: radial-gradient(ellipse 80% 60% at 65% 50%, rgba(26,61,43,.35), transparent 70%),
+              radial-gradient(ellipse 50% 80% at 20% 80%, rgba(184,137,42,.1), transparent 60%);
+}
+.hero-grain {
+  position:absolute; inset:0; opacity:.35;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+  background-size:200px; pointer-events:none;
+}
+.hero-lines { position:absolute; inset:0; overflow:hidden; opacity:.06; pointer-events:none; }
+.hero-lines::before {
+  content:''; position:absolute; top:-200px; right:16%; width:1px; height:120%;
+  background:linear-gradient(to bottom, transparent, var(--gold2), transparent);
+}
+.hero-lines::after {
+  content:''; position:absolute; top:-200px; right:calc(16% + 56px); width:1px; height:120%;
+  background:linear-gradient(to bottom, transparent, var(--gold), transparent);
+}
+.hero-content {
+  position:relative; z-index:2;
+  display:grid; grid-template-columns:1fr 440px; gap:64px; align-items:center;
+  padding:0 24px; width:100%; max-width:1300px; margin:0 auto;
+}
+.hero-eyebrow { display:flex; align-items:center; gap:12px; margin-bottom:24px; }
+.eyebrow-line { width:36px; height:1px; background:var(--gold); flex-shrink:0; }
+.eyebrow-text { font-size:11px; font-weight:600; letter-spacing:.2em; text-transform:uppercase; color:var(--gold2); }
+.hero-h1 { font-family:var(--serif); font-size:clamp(44px,6vw,80px); color:var(--cream); font-weight:400; }
+.hero-h1 em { display:block; font-style:italic; color:var(--gold3); font-size:.88em; }
+.hero-sub { font-size:15px; font-weight:300; line-height:1.8; color:rgba(250,246,238,.6); max-width:440px; margin:20px 0 40px; }
+.hero-actions { display:flex; align-items:center; gap:24px; flex-wrap:wrap; }
+.btn-primary-hero {
+  font-size:12px; font-weight:700; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--ink); background:var(--gold2); padding:15px 32px; border-radius:3px;
+  transition:all .25s;
+}
+.btn-primary-hero:hover { background:var(--gold3); transform:translateY(-1px); }
+.btn-ghost-hero {
+  font-size:12px; font-weight:400; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--gold2); display:flex; align-items:center; gap:8px; transition:gap .2s;
+}
+.btn-ghost-hero::after { content:'→'; font-size:14px; }
+.btn-ghost-hero:hover { gap:14px; }
+.hero-stats { display:flex; align-items:center; gap:28px; margin-top:48px; padding-top:36px; border-top:1px solid rgba(250,246,238,.1); }
+.h-stat-val { font-family:var(--serif); font-size:26px; font-weight:700; color:var(--gold2); }
+.h-stat-label { font-size:12px; color:rgba(250,246,238,.5); margin-top:2px; }
+.h-stat-div { width:1px; height:40px; background:rgba(250,246,238,.1); }
+
+/* Hero card */
+.hero-card-wrap { position:relative; }
+.hero-card {
+  background:rgba(250,246,238,.04); border:1px solid rgba(240,204,122,.2);
+  border-radius:2px; padding:40px 32px; backdrop-filter:blur(12px); position:relative;
+}
+.hero-card::before { content:''; position:absolute; top:0; left:0; right:0; height:1px; background:linear-gradient(to right, transparent, var(--gold2), transparent); }
+.hero-card::after  { content:''; position:absolute; bottom:0; left:0; right:0; height:1px; background:linear-gradient(to right, transparent, rgba(240,204,122,.4), transparent); }
+.card-corner {
+  position:absolute; width:36px; height:36px;
+}
+.card-corner.tl { top:14px; left:14px; border-top:1px solid rgba(240,204,122,.4); border-left:1px solid rgba(240,204,122,.4); }
+.card-corner.br { bottom:14px; right:14px; border-bottom:1px solid rgba(240,204,122,.4); border-right:1px solid rgba(240,204,122,.4); }
+.card-spice-icon { font-size:72px; text-align:center; margin-bottom:24px; }
+.card-grade { display:flex; align-items:center; justify-content:space-between; padding-bottom:16px; border-bottom:1px solid var(--border); margin-bottom:16px; }
+.grade-name { font-family:var(--serif); font-size:22px; color:var(--cream); }
+.grade-badge { font-size:10px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--ink); background:var(--gold2); padding:4px 10px; border-radius:2px; }
+.card-attrs { display:flex; flex-direction:column; gap:10px; margin-bottom:20px; }
+.attr-row { display:flex; justify-content:space-between; align-items:center; }
+.attr-label { font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); }
+.attr-val { font-size:13px; color:rgba(250,246,238,.85); }
+.attr-dots { display:flex; gap:4px; }
+.attr-dot { width:8px; height:8px; border-radius:50%; background:rgba(240,204,122,.2); }
+.attr-dot.filled { background:var(--gold2); }
+.card-origin { display:flex; align-items:center; gap:8px; padding-top:16px; border-top:1px solid var(--border); }
+.origin-flag { font-size:16px; }
+.origin-text { font-size:12px; color:var(--muted); }
+.origin-text strong { color:var(--gold3); font-weight:400; }
+
+/* View all link */
+.view-all-wrap { text-align:center; margin-top:36px; }
+.view-all {
+  font-size:12px; font-weight:600; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--gold2); border:1px solid rgba(184,137,42,.35); padding:12px 28px;
+  border-radius:3px; transition:all .2s; display:inline-block;
+}
+.view-all:hover { background:rgba(184,137,42,.08); border-color:var(--gold2); }
+
+/* ── RESPONSIVE ───────────────────────────────────────────── */
+@media (max-width:900px) {
+  .hero-content { grid-template-columns:1fr; }
+  .hero-card-wrap { display:none; }
+  .hero { min-height:auto; padding:100px 18px 60px; }
+}
+@media (max-width:480px) {
+  .hero-stats { flex-wrap:wrap; gap:16px; }
+  .h-stat-div { display:none; }
+}
